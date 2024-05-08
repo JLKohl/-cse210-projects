@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 
 class Program
 {
@@ -18,8 +19,16 @@ class Program
        job2._startYear = 2010;
        job2._endYear = 3000;
 
-       job1.Display();
-       job2.Display();
+    //    job1.Display();
+    //    job2.Display();
+
+       Resume newResume = new Resume();
+
+       newResume._name = "Jennifer Kohl";
+       newResume._jobs.Add(job1);
+       newResume._jobs.Add(job2);
+
+        newResume.Display();
 ;
     }
 }
