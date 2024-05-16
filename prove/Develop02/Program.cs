@@ -8,7 +8,7 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("menu: \n 1. Write \n 2. Display \n 3. Load \n 4. Save \n 5. Quit");
-        Console.WriteLine("Which option do you choose? ");
+        Console.Write("Which option do you choose(1-5)? ");
         String userInput = Console.ReadLine();
         int userNumber = int.Parse(userInput);
 
