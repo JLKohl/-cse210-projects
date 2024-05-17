@@ -12,7 +12,7 @@ public class Journal{
     }
 
     public void SaveFile(){
-
+        
     }
     
     public void LoadFile(){

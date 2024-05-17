@@ -12,24 +12,33 @@ class Program
         String userInput = Console.ReadLine();
         int userNumber = int.Parse(userInput);
 
-
+      
         if (userNumber == 1){
             Console.WriteLine("one");
+
+            Prompt newPrompt = new Prompt();
+            newPrompt.DisplayPrompt();
+
+            Entries entery = new Entries();
+            
+            Console.Write("> ");
+            entery._entries = Console.ReadLine();
+
         }
         else if (userNumber == 2 ){
             Console.WriteLine("two");
+
         }
         else if (userNumber == 3 ){
-           Console.WriteLine("three"); 
+            Console.WriteLine("three");
+
         }
         else if (userNumber == 4){
             Console.WriteLine("four");
         }
-        else if (userNumber == 5 ){
-            Console.WriteLine("five");
-        }
-        else {
-            Console.WriteLine("Sorry your input is invalid. Please enter a number 1-5");
-        }
+
+
+
+
     }
 }
