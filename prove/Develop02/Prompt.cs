@@ -5,18 +5,19 @@ public class Prompt {
   
     public  List<string> _prompts = new List<string>(){
         
-        "this is prompt one",
-        "this is prompt two",
-        "this is prompt three",
-        "this is prompt four",
-        "this is prompt five"
+        "What is something that made you smile today?",
+        "Who did you help today?",
+        "What is something new you learned today?",
+        "How did you see Gods hand in your life today?",
+        "What was the best thing you ate today?"
 
     };
-     public int DisplayPrompt(){
+     public string DisplayPrompt(){
 
-        var Random = new Random();
-        int index = Random.Next(_prompts.Count);
+        Random randomPrompt = new Random();
+        int index = randomPrompt.Next(_prompts.Count);
+        string newPromt = _prompts[ index ];
 
-        return index;
+        return newPromt;
      }
 }

@@ -4,10 +4,17 @@ using System.Security.Cryptography;
 public class Journal{
 
     public string _write;
-    public List<Entries> _entries = new List<Entries>();
+    public List<Entry> _entries = new List<Entry>();
     public string _fileName;   
 
     public void DisplayEntries(){
+
+        Console.WriteLine($"{_entries}");
+
+        foreach (Entry entries in _entries)
+        {
+            entries.Display();
+        }
 
     }
 
