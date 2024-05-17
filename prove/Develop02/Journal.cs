@@ -7,9 +7,7 @@ public class Journal{
     public List<Entry> _entries = new List<Entry>();
     public string _fileName;   
 
-    public void DisplayEntries(){
-
-        Console.WriteLine($"{_entries}");
+    public void Display(){
 
         foreach (Entry entries in _entries)
         {

@@ -1,11 +1,11 @@
 
 public class Entry {
 
-    public string _entries;
+    public string _entry;
     
     public void Display()
     {
-        Console.WriteLine($"{_entries}");
+        Console.WriteLine($"{_entry}");
     }
     
 }
