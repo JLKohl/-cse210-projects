@@ -1,0 +1,2 @@
+show scripture and menu
+if enter is hit, screen relaods with some words replaced with underscore, until all replaced
