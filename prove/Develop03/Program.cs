@@ -22,9 +22,6 @@ class Program
         Console.WriteLine($"{reference.GetReference()}: {construction.ConstructScripture(one.LoadScripture(scripture))}");
 
 
-        Scripture test = new Scripture();
-
-        test.RemoveRandomWords(one.LoadScripture(scripture));
 
         //runtime loop while for enter 
 

@@ -1,45 +1,53 @@
 
 
 
+using System.Diagnostics;
+
 public class Scripture
 {
-    private List<Word> _words = new List<Word>();
+    private List<string> _words = new List<string>();
 
     public Scripture()
     {
 
     }
 
-    public Object[] LoadScripture(string scripture)
+    public void LoadScripture(string scripture)
     {
         //create four loop to create an array of Word objects. Loop through words[]assigning string value to Word objects
-
-
         Object[] words = scripture.Split(" ");
-        
-        int index = 0;
+    
+        foreach (string word in words){
 
-        foreach ( string word in words)
-        {
-      
+            string wordString = words.ToString();
+            _words.Add(wordString);
+
         }
 
-        return words;
     }
 
-    public void RemoveRandomWords(Object[] words)
+    public void RemoveRandomWords()
     {
         //flip a couple words. random, mark words as hidden
         // random word hider set _hidden to True
 
+        //get words from list
+
         //take some randome word indexes
-
         Random random = new Random();
-        int index = random.Next(words.Length);
+        int index = random.Next(_words.Count);
+        string randomIndex = _words[index].ToString();
 
-        string source = words[index].ToString();
+ 
+        //take word index and set as hidden
 
-        Console.Write($"{index}, {source}");
+        Word scriptureWord = new Word(_words);
+
+  
+        if (sciptureWord == randomIndex){
+
+            scriptureWord == hidden;
+        }
    
     }
 
