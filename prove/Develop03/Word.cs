@@ -1,6 +1,7 @@
 
 using System.Threading.Tasks.Dataflow;
 using System.Text.RegularExpressions;
+using System.Reflection.Metadata.Ecma335;
 
 public class Word
 {
@@ -10,10 +11,10 @@ public class Word
 
     public Word(string word)
     {
-        _scriptureWord = word;
+        _scriptureWord =  word;
     }
 
-    public string GetWord(string word)
+    public string GetWord(string _scriptureWord)
     {
         if (_hidden)
         {
@@ -22,7 +23,7 @@ public class Word
         }
         else
         {
-            _scriptureWord = _scriptureWord;
+            this._scriptureWord = _scriptureWord;
         }
 
         return _scriptureWord;

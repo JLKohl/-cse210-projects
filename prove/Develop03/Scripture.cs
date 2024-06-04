@@ -6,6 +6,7 @@ using System.Diagnostics;
 public class Scripture
 {
     private List<string> _words = new List<string>();
+    private bool wordHidden; 
 
     public Scripture()
     {
@@ -31,8 +32,6 @@ public class Scripture
         //flip a couple words. random, mark words as hidden
         // random word hider set _hidden to True
 
-        //get words from list
-
         //take some randome word indexes
         Random random = new Random();
         int index = random.Next(_words.Count);
@@ -40,14 +39,20 @@ public class Scripture
 
  
         //take word index and set as hidden
+        foreach (string word in _words){
+            
 
-        Word scriptureWord = new Word(_words);
+            if (word == randomIndex)
+            {
+               wordHidden = true;
+            }else
+            {
+                wordHidden = false;
+            }
 
-  
-        if (sciptureWord == randomIndex){
-
-            scriptureWord == hidden;
+        
         }
+    
    
     }
 
