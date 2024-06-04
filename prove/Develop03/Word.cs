@@ -13,7 +13,7 @@ public class Word
         _scriptureWord = word;
     }
 
-    public string GetWord()
+    public string GetWord(string word)
     {
         if (_hidden)
         {

@@ -21,7 +21,7 @@ public class Scripture
 
         foreach ( string word in words)
         {
-            index++;
+      
         }
 
         return words;
@@ -32,13 +32,14 @@ public class Scripture
         //flip a couple words. random, mark words as hidden
         // random word hider set _hidden to True
 
-        // Random random = new Random();
-        // int index = random.Next(words.Length);
+        //take some randome word indexes
 
-        string source = words[0].ToString();
+        Random random = new Random();
+        int index = random.Next(words.Length);
 
-        // Replace all occurrences of one char with another.
-        //convert objects in array to word objects
+        string source = words[index].ToString();
+
+        Console.Write($"{index}, {source}");
    
     }
 
