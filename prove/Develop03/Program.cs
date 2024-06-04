@@ -6,16 +6,20 @@ class Program
 {
     static void Main(string[] args)
     {
-        string scripture = "And it came to pass that he was obedient unto the word of the Lord, "+
-        "wherefore he did as the Lord commanded him.";
+        string scripture = "Therefore, let your hearts be comforted concerning Zion;"+
+        "for all flesh is in mine hands; be still and know that I am God.";
+
+        Reference reference = new Reference("D&C", 101, 16);
+
+        reference.GetReference();
 
         Scripture one = new Scripture();
 
         one.LoadScripture(scripture);
 
         Scripture construction = new Scripture();
-
-        Console.Write(construction.ConstructScripture(one.LoadScripture(scripture)));
+       
+        Console.WriteLine($"{reference.GetReference()}: {construction.ConstructScripture(one.LoadScripture(scripture))}");
 
 
     

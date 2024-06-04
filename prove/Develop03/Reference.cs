@@ -29,13 +29,13 @@ public class Reference
         _endVerse = endVerse;
     }
 
-    public string GetRefrerence()
+    public string GetReference()
     {
         string text = $"{_book} {_chapter}:{_startVerse}";
         return text;
     }
 
-    public string GetRefrerenceRange()
+    public string GetReferenceRange()
     {
         string text = $"{_book} {_chapter}:{_startVerse}-{_endVerse}";
         return text;
