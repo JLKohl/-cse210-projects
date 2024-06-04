@@ -12,8 +12,18 @@ public class Scripture
 
     public Object[] LoadScripture(string scripture)
     {
-        Object[] words = scripture.Split(" ");
         //create four loop to create an array of Word objects. Loop through words[]assigning string value to Word objects
+
+
+        Object[] words = scripture.Split(" ");
+        
+        int index = 0;
+
+        foreach ( string word in words)
+        {
+            index++;
+        }
+
         return words;
     }
 
@@ -28,10 +38,6 @@ public class Scripture
         string source = words[0].ToString();
 
         // Replace all occurrences of one char with another.
-        
-        // Console.WriteLine(index);
-
-
         //convert objects in array to word objects
    
     }

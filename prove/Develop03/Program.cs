@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 using System.Xml;
 
 class Program
@@ -14,11 +15,7 @@ class Program
 
         Scripture construction = new Scripture();
 
-
-
-        Scripture test = new Scripture();
-
-        test.RemoveRandomWords(one.LoadScripture(scripture));
+        Console.Write(construction.ConstructScripture(one.LoadScripture(scripture)));
 
 
     
