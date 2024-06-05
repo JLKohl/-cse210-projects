@@ -14,19 +14,23 @@ public class Word
         _scriptureWord =  word;
     }
 
-    public string GetWord(string _scriptureWord)
+    public string GetWord()
     {
         if (_hidden)
         {
             //return as ____
-            _scriptureWord = Regex.Replace(_scriptureWord, "[^0-9.]", "_");
+            return Regex.Replace(_scriptureWord, "[^0-9.]", "_");
         }
         else
         {
-            this._scriptureWord = _scriptureWord;
+            return _scriptureWord;
         }
 
-        return _scriptureWord;
+    }
+
+    public void SetHidden(bool hidden){
+
+        this._hidden = hidden;
     }
 
 }

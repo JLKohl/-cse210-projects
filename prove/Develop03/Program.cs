@@ -13,13 +13,20 @@ class Program
 
         reference.GetReference();
 
+
+
+        Console.WriteLine("\ntest one -----------------------------------------");
         Scripture one = new Scripture();
-
         one.LoadScripture(scripture);
+        Console.Write(one.ConstructScripture());
 
-        Scripture construction = new Scripture();
-       
-        Console.WriteLine($"{reference.GetReference()}: {construction.ConstructScripture(one.LoadScripture(scripture))}");
+
+        Console.WriteLine("\ntest two -----------------------------------------");
+        Scripture two = new Scripture();
+        two.LoadScripture(scripture);
+        two.RemoveRandomWords();
+        Console.Write(two.ConstructScripture());
+
 
 
 

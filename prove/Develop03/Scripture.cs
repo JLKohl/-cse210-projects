@@ -2,11 +2,11 @@
 
 
 using System.Diagnostics;
+using System.Text;
 
 public class Scripture
 {
-    private List<string> _words = new List<string>();
-    private bool wordHidden; 
+    private List<Word> _words = new List<Word>();
 
     public Scripture()
     {
@@ -20,7 +20,7 @@ public class Scripture
     
         foreach (string word in words){
 
-            string wordString = words.ToString();
+            Word wordString = new Word(word);
             _words.Add(wordString);
 
         }
@@ -34,33 +34,33 @@ public class Scripture
 
         //take some randome word indexes
         Random random = new Random();
-        int index = random.Next(_words.Count);
-        string randomIndex = _words[index].ToString();
+        int randomIndex = random.Next(_words.Count);
+
 
  
         //take word index and set as hidden
-        foreach (string word in _words){
+        //need to watch out for colisions, if number 15 is random you shouldnt be able to pick 15 again. 
+        for (int i = 0; i < _words.Count; i++){
             
-
-            if (word == randomIndex)
+            if (i == randomIndex)//you can check to see if i is containted in an array of integers
             {
-               wordHidden = true;
-            }else
-            {
-                wordHidden = false;
+                this._words[i].SetHidden(true);
             }
-
-        
+           
         }
-    
+        
    
     }
 
-    public string ConstructScripture( Object[] words)
+    public string ConstructScripture()
     {
-        string constructedScripture = string.Join(" ", words);
-        string text = $"{constructedScripture}";
-        return text;
+        StringBuilder builder = new StringBuilder();
+
+        foreach (Word word in _words){
+            builder.Append(word.GetWord() + " ");
+        }
+
+        return builder.ToString();
     }
 
 }
