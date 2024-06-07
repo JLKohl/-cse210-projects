@@ -56,7 +56,8 @@ public class Scripture
     {
         List<int> randomIndexes = new List<int>();
         Random random = new Random();
-
+        //my Dad mostly wrote this part of the code that makes it so that the words are taken out of the scripture and turned to dashes no more than one time.
+        //I helped write, and I understand it, it was just a bit to tricky for me to get to and I wanted to program to run more efficiently. 
         while (randomIndexes.Count < 3 && randomIndexes.Count < GetNumberOfUnhiddenWordsRemaining())
         {
             int randomNumber = random.Next(_words.Count);
