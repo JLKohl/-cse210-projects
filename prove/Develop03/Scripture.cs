@@ -7,7 +7,7 @@ using System.Text;
 public class Scripture
 {
     private List<Word> _words = new List<Word>();
-
+    private Reference _newReference;
     public Scripture()
     {
 
@@ -16,40 +16,58 @@ public class Scripture
     public void LoadScripture(string scripture)
     {
         //create four loop to create an array of Word objects. Loop through words[]assigning string value to Word objects
-        Object[] words = scripture.Split(" ");
+        String[] words = scripture.Split(" ");
     
         foreach (string word in words){
 
-            Word wordString = new Word(word);
-            _words.Add(wordString);
+            Word wordClass = new Word(word);
+            _words.Add(wordClass);
 
         }
 
     }
 
+    public void LoadReference(string book, int chapter, int startVerse, int endVerse)
+    {
+        _newReference = new Reference(book, chapter, startVerse, endVerse );
+    }
+    
+    public void LoadReference(string book, int chapter, int startVerse)
+    {
+        _newReference = new Reference(book, chapter, startVerse);
+    }
+
     public void RemoveRandomWords()
     {
-        //flip a couple words. random, mark words as hidden
-        // random word hider set _hidden to True
 
-        //take some randome word indexes
         Random random = new Random();
-        int randomIndex = random.Next(_words.Count);
+        int randomIndexOne = random.Next(_words.Count);
+        int randomIndexTwo = random.Next(_words.Count);
+        int randomIndexThree = random.Next(_words.Count);
 
-
- 
-        //take word index and set as hidden
-        //need to watch out for colisions, if number 15 is random you shouldnt be able to pick 15 again. 
-        for (int i = 0; i < _words.Count; i++){
-            
-            if (i == randomIndex)//you can check to see if i is containted in an array of integers
-            {
-                this._words[i].SetHidden(true);
-            }
-           
-        }
+        List<int> randomNumbers = GetRandomList();
         
-   
+        foreach (int number in randomNumbers){
+            this._words[number].SetHidden(true);
+        }
+    }
+    
+    private List<int> GetRandomList() 
+    {
+        List<int> randomIndexes = new List<int>();
+        Random random = new Random();
+
+        while (randomIndexes.Count < 3 && randomIndexes.Count < GetNumberOfUnhiddenWordsRemaining())
+        {
+            int randomNumber = random.Next(_words.Count);
+
+            if (!randomIndexes.Contains(randomNumber) && _words[randomNumber].NotHidden())
+            {
+                randomIndexes.Add(randomNumber);
+            }
+        }
+
+        return randomIndexes;
     }
 
     public string ConstructScripture()
@@ -61,6 +79,32 @@ public class Scripture
         }
 
         return builder.ToString();
+    }
+
+    public bool HasMoreWords()
+    {
+        return GetNumberOfUnhiddenWordsRemaining() > 0;
+    }
+
+    public int GetNumberOfUnhiddenWordsRemaining()
+    {
+        int unhidden = 0;
+        
+        foreach (Word word in _words){
+
+            if (word.NotHidden())
+            {
+                unhidden++;
+            }
+        }
+        
+        return unhidden;
+    }
+
+    public string GetScripture()
+    {
+
+        return $" {_newReference.GetReference()}: {ConstructScripture()}";
     }
 
 }

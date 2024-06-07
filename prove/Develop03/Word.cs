@@ -28,6 +28,11 @@ public class Word
 
     }
 
+    public bool NotHidden()
+    {
+        return ! _hidden;
+    }
+
     public void SetHidden(bool hidden){
 
         this._hidden = hidden;

@@ -6,35 +6,28 @@ class Program
 {
     static void Main(string[] args)
     {
-        string scripture = "Therefore, let your hearts be comforted concerning Zion;"+
+        string text = "Therefore, let your hearts be comforted concerning Zion; "+
         "for all flesh is in mine hands; be still and know that I am God.";
 
         Reference reference = new Reference("D&C", 101, 16);
+        
+        Scripture scripture = new Scripture();
+        scripture.LoadScripture(text);
+        scripture.LoadReference("D&C", 101, 16);
+        Console.WriteLine(scripture.GetScripture());
+        
+        Console.WriteLine("Press Enter to remove words or type 'quit' to end program.");
+        string input = Console.ReadLine();
 
-        reference.GetReference();
-
-
-
-        Console.WriteLine("\ntest one -----------------------------------------");
-        Scripture one = new Scripture();
-        one.LoadScripture(scripture);
-        Console.Write(one.ConstructScripture());
-
-
-        Console.WriteLine("\ntest two -----------------------------------------");
-        Scripture two = new Scripture();
-        two.LoadScripture(scripture);
-        two.RemoveRandomWords();
-        Console.Write(two.ConstructScripture());
-
-
-
-
-        //runtime loop while for enter 
-
-        // while{
-             
-        // }
-
+        while (input != "quit" && scripture.HasMoreWords())
+        {
+            
+            scripture.RemoveRandomWords();
+            Console.WriteLine(scripture.GetScripture());
+            
+            Console.WriteLine("Press Enter to remove words or type 'quit' to end program.");
+            input = Console.ReadLine();
+        }
+        
     }
 }

@@ -5,23 +5,19 @@ public class Reference
     private int _chapter;
     private int _startVerse;
     private int _endVerse;
-
-    public Reference()
-    {
-        _book = "unknown";
-        _chapter = 0;
-        _startVerse = 0;
-        _endVerse = 0;
-    }
+    
 
     public Reference(string book, int chapter, int startVerse)
     {
-        _book = book;
-        _chapter = chapter;
-        _startVerse = startVerse;
+        CreateReference(book, chapter, startVerse, startVerse);
+    }
+    
+    public Reference(string book, int chapter, int startVerse, int endVerse)
+    {
+        CreateReference(book, chapter, startVerse, endVerse);
     }
 
-    public Reference(string book, int chapter, int startVerse, int endVerse)
+    public void CreateReference(string book, int chapter, int startVerse, int endVerse)
     {
         _book = book;
         _chapter = chapter;
@@ -31,13 +27,18 @@ public class Reference
 
     public string GetReference()
     {
-        string text = $"{_book} {_chapter}:{_startVerse}";
-        return text;
-    }
+        string text; 
+        
+        if ( _endVerse == _startVerse)
+        {
+          text = $"{_book} {_chapter}:{_startVerse}";           
+        }
+        else
+        {
+           text = $"{_book} {_chapter}:{_startVerse}-{_endVerse}";
+        }
 
-    public string GetReferenceRange()
-    {
-        string text = $"{_book} {_chapter}:{_startVerse}-{_endVerse}";
         return text;
     }
+    
 }
