@@ -19,8 +19,6 @@ public class Journal{
 
     public void SaveEntries(string filename){
 
-        
-
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
             foreach (Entry entry in _entries)
@@ -28,9 +26,7 @@ public class Journal{
                 outputFile.WriteLine($"{entry._date}~{entry._prompt}~{entry._entry}");
             }
             
-
         }
-        
     }
     
     public void LoadFile(string filename)
