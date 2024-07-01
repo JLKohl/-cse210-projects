@@ -8,14 +8,19 @@ public abstract class Goal
     protected int _totalPoints;
     protected bool _isComplete;
 
-    public Goal(int points, string name, string description)
+    public Goal(int points, string name, string description, bool isComplete)
     {
         _points = points;
         _name = name;
         _description = description;
+        _isComplete = isComplete;
 
     }
 
+    public Goal()
+    {
+        
+    }
     public string DisplayName()
     {
         string displayName = $"{_name}";
