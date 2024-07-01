@@ -136,9 +136,7 @@ class Program
             {
                 Console.WriteLine("Enter filename: ");
                 string fileName = Console.ReadLine();
-
-                string currentDirectory = System.IO.Directory.GetCurrentDirectory();
-                Console.WriteLine($"Current Directory: {currentDirectory}");
+                
                 try
                 {
                     using (StreamWriter sw = new StreamWriter(fileName))
