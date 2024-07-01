@@ -10,16 +10,15 @@ class Program
         string userGoalDescription;
         List <Goal> userGoalList = new List<Goal>();
         Animation animation = new Animation();
-        
-        
+        int pointsInFile = 0;
         
         int activityChoice;
         Console.WriteLine("Welcome to your Eternal Quest. Please pick a number from the menu to start you adventure!");
         Console.WriteLine(" ");
    
-            while (true){ 
-                int totalPoints = 0; 
+            while (true){
                 
+                int totalPoints = pointsInFile;  
             Console.WriteLine(" ");
             for (int i = 0; i < userGoalList.Count; i++)
             {
@@ -81,7 +80,7 @@ class Program
                     Console.WriteLine("What is the point value of your goal? ");
                     userGoalPoints = int.Parse(Console.ReadLine());
                     
-                    SimpleGoal simpleGoal = new SimpleGoal(userGoalPoints, userGoalName, userGoalDescription);
+                    SimpleGoal simpleGoal = new SimpleGoal(userGoalPoints, userGoalName, userGoalDescription, false);
                     userGoalList.Add(simpleGoal);
                     //serialize simple goal so that it can be saved to a file 
                 }
@@ -96,7 +95,7 @@ class Program
                     Console.WriteLine("What is the point value of your goal? ");
                     userGoalPoints = int.Parse(Console.ReadLine());
                     
-                    EternalGoal eternalGoal = new EternalGoal(userGoalPoints, userGoalName, userGoalDescription);
+                    EternalGoal eternalGoal = new EternalGoal(userGoalPoints, userGoalName, userGoalDescription,false);
                     userGoalList.Add(eternalGoal);
 
                 }
@@ -117,7 +116,7 @@ class Program
                     Console.WriteLine("How many bonus points will you receive? ");
                     int userBonusPoints = int.Parse(Console.ReadLine());
                     
-                    CheckListGoal checkListGoal = new CheckListGoal(userGoalPoints, userGoalName, userGoalDescription, userBonusPoints, userHowManyTimesToComplete, 0);
+                    CheckListGoal checkListGoal = new CheckListGoal(userGoalPoints, userGoalName, userGoalDescription, userBonusPoints, userHowManyTimesToComplete, 0, false);
                     userGoalList.Add(checkListGoal);
                 }
                 else
@@ -172,23 +171,22 @@ class Program
                 {
                     if (lines[i].Contains("Simple Goal"))
                     {
-                        Goal simpleGoal = new SimpleGoal(0, "", "").DeserializeGoals(lines[i]) as SimpleGoal;
+                        Goal simpleGoal = new SimpleGoal().DeserializeGoals(lines[i]) as SimpleGoal;
                         userGoalList.Add(simpleGoal);
                     }
                     else if (lines[i].Contains("Eternal Goal"))
                     {
-                        Goal eternalGoal = new EternalGoal(0, "", "").DeserializeGoals(lines[i]) as EternalGoal;
+                        Goal eternalGoal = new EternalGoal().DeserializeGoals(lines[i]) as EternalGoal;
                         userGoalList.Add(eternalGoal);
                     }
                     else if (lines[i].Contains("Check List Goal"))
                     {
-                        Goal checkListGoal = new CheckListGoal(0, "", "", 0, 0, howManyCompleted: 0).DeserializeGoals(lines[i]) as CheckListGoal;
+                        Goal checkListGoal = new CheckListGoal().DeserializeGoals(lines[i]) as CheckListGoal;
                         userGoalList.Add(checkListGoal);
                     }
                     else
                     {
-                        totalPoints = int.Parse(lines[i]);
-                        
+                        pointsInFile = int.Parse(lines[i]);
                     }
                 }
 
@@ -207,9 +205,10 @@ class Program
             }
             else if (activityChoice == 5)
             {
-
+       
                 for (int i = 0; i < userGoalList.Count; i++)
                 {
+                  
                     Console.WriteLine($"{i + 1}. {userGoalList[i].DisplayName()}");
 
                 }

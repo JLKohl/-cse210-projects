@@ -4,34 +4,40 @@ public class SimpleGoal : Goal
 {
     
     
-    public SimpleGoal(int points, string name, string description) : base(points, name, description)
+    public SimpleGoal(int points, string name, string description, bool isComplete) : base(points, name, description, isComplete)
+    {
+        
+    }
+    
+    public SimpleGoal()
     {
         
     }
     
     public override string DisplayGoals()
     {
-        string display = $"{DisplayCompleted()} {_name} ({_description}) This goal is worth {_points} points.";
+        string display = $"{DisplayCompleted()} Simple Goal: {_name} ({_description}) This goal is worth {_points} points.";
         
         return display;
     }
   
     public override string SerializeGoals()
     {
-        return $"Simple Goal: {_name}~{_description}~{_points}~{_isComplete}";
+        return $"Simple Goal:~{_name}~{_description}~{_points}~{_isComplete}";
     }
 
     public override Goal DeserializeGoals(string line)
     {
         // Code to deserialize goals
             string[] parts = line.Split('~');
-            int points = int.Parse(parts[2]);
-            string name = parts[0]; 
-            string description = parts[1];
-            Goal goal = new SimpleGoal(points, name, description);
+            int points = int.Parse(parts[3]);
+            string name = parts[1]; 
+            string description = parts[2];
+            bool isComplete = bool.Parse(parts[4]);
+            Goal goal = new SimpleGoal(points, name, description, isComplete);
             // Add goal to list or perform any other necessary operations
         
-        return new SimpleGoal(points, name, description);
+        return new SimpleGoal(points, name, description, isComplete);
     
     }
 

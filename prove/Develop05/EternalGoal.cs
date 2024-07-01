@@ -2,19 +2,23 @@ namespace Develop05;
 
 public class EternalGoal : Goal
 {
-    public EternalGoal(int points, string name, string description) : base(points, name, description)
+    public EternalGoal(int points, string name, string description, bool isComplete) : base(points, name, description, isComplete)
+    {
+        
+    }
+    public EternalGoal()
     {
         
     }
     
     public override string SerializeGoals()
     {
-        return $"Eternal Goal: {_name}~{_description}~{_points}";
+        return $"Eternal Goal:~{_name}~{_description}~{_points}";
     }
     
     public override string DisplayGoals()
     {
-        string display = $"{DisplayCompleted()} {_name} ({_description}) This goal is worth {_points} points.";
+        string display = $"{DisplayCompleted()} Eternal Goal: {_name} ({_description}) This goal is worth {_points} points.";
         
         return display;
     }
@@ -30,12 +34,13 @@ public class EternalGoal : Goal
     {
         
             string[] parts = line.Split('~');
-            int points = int.Parse(parts[2]);
-            string name = parts[0];
-            string description = parts[1];
+            int points = int.Parse(parts[3]);
+            string name = parts[1];
+            string description = parts[2];
+            bool isComplete = false;
             // Add goal to list or perform any other necessary operations
         
-        return new EternalGoal(points,name,description);
+        return new EternalGoal(points,name,description, isComplete);
     }
 
 
