@@ -25,7 +25,7 @@ public class Animation
         foreach (string s in animationStrings)
         {
             Console.Write(s);
-            Thread.Sleep(1000);//1000 is equal to one second
+            Thread.Sleep(500);//1000 is equal to one second
             Console.Write("\b \b"); //(need two backslashes for doubles) in c# this makes the console backspace over itself so it will reprint the same line.
             
         }
