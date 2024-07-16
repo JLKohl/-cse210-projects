@@ -1,5 +1,3 @@
-
-
 namespace Foundation3;
 
 public class LectureEvent : Event
