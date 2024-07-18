@@ -9,9 +9,9 @@ public class OutdoorEvent : Event
         _weather = weather;
     }
 
-    public string WeatherForecast()
+    public override string EventDetails()
     {
-        return $" Forecast for event: {_weather} ";
+        return $"Forecast for event: {_weather} ";
     }
     
 }

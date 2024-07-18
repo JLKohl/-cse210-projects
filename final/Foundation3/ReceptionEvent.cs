@@ -10,9 +10,8 @@ public class ReceptionEvent : Event
         _email = email;
     }
 
-    public string GetEmail()
+    public override string EventDetails()
     {
-        return $" Registration E-mail: {_email}";
+        return $"Email: {_email}";
     }
-    
 }

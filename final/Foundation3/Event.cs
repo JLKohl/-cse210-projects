@@ -1,6 +1,6 @@
 namespace Foundation3;
 
-public class Event
+public abstract class Event
 {
     private string _eventType;
     private string _eventTitle;
@@ -18,17 +18,23 @@ public class Event
         _date = date;
         _address = address;
     }
+
+    public abstract string EventDetails();
+
     
     public string StandardEvent()
     {
-        return $" Event Title: {_eventTitle} \n Description: {_description} \n Start Time: {_time} \n Date: {_date} \n Address: {_address.GetAddress()}";
+        return $" Event Title: {_eventTitle} \n Description: {_description} \n Start Time: {_time} \n Date: {_date} \n Address: {_address.GetAddress()} \n";
     }
-    
-    
 
     public string ShortDescription()
     {
-        return $" Event Type: {_eventType} \n Event Title: {_eventTitle} \n Date: {_date} ";
+        return $" Event Type: {_eventType} \n Event Title: {_eventTitle} \n Date: {_date} \n";
+    }
+
+    public string DetailedEvent()
+    {
+        return $"{StandardEvent()} {EventDetails()} \n";
     }
     
 }

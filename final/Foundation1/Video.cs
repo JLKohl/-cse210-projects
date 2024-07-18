@@ -2,12 +2,19 @@ namespace Foundation1;
 
 public class Video
 {
-    public string _author;
-    public string _title;
-    public int _length;
+    private string _author;
+    private string _title;
+    private int _length;
     public List<Comment> _comments = new List<Comment>();
 
-
+    public Video(string author, string title, int length, List<Comment> comments)
+    {
+        _author = author;
+        _title = title;
+        _length = length;
+        _comments = comments;
+    }
+   
     public int countComments()
     {
         int numOfVids = 0;
@@ -19,7 +26,7 @@ public class Video
         
         return numOfVids;
     }
-    public void Display()
+    public void DisplayVideo()
     {
         Console.WriteLine(" ");
         Console.WriteLine("_______________New Video_________________");

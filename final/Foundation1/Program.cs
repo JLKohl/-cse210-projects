@@ -5,88 +5,65 @@ class Program
 {
     static void Main(string[] args)
     {
+        
         // video A
         
-        Comment oneA = new Comment();
-        oneA._name = "Tommy Jones";
-        oneA._comment = "This product is great!";
         
-        Comment twoA = new Comment();
-        twoA._name = "Stacy Mann";
-        twoA._comment = "I would love to try this new product in my house.";
+        Comment one = new Comment("Tommy Jones", "This product is great!");
         
-        Comment threeA = new Comment();
-        threeA._name = "Rachel Lee";
-        threeA._comment = "Im not 100% sure I understood how to use this product.";
+        Comment two = new Comment("Stacy Mann","I would love to try this new product in my house.");
         
-        Comment fourA = new Comment();
-        fourA._name = "Trixie Ponee";
-        fourA._comment = "Can you tell me where I can get this product?";
+        Comment three = new Comment("Rachel Lee", "Im not 100% sure I understood how to use this product.");
+        
+        Comment four = new Comment("Trixie Ponee", "Can you tell me where I can get this product?");
+        
+        List<Comment> vidOneComments = new List<Comment>();
+        vidOneComments.Add(one);
+        vidOneComments.Add(two);
+        vidOneComments.Add(three);
+        vidOneComments.Add(four);
+        
+        Video videoOne = new Video("Jessica Jimma",  "The Best NEW Cleaning Product!", 300, vidOneComments);
+        
+        videoOne.DisplayVideo();
         
         //Video B
-        Comment oneB = new Comment();
-        oneB._name = "KK Marino";
-        oneB._comment = "This is really cool, can you make another video about this product?";
         
-        Comment twoB = new Comment();
-        twoB._name = "Travis Swift";
-        twoB._comment = "Is this something you use daily or on a weekly basis?";
         
-        Comment threeB = new Comment();
-        threeB._name = "Kyle Vaoyo";
-        threeB._comment = "This product looks like it is well made, love the design.";
+        Comment five = new Comment("KK Marino", "This is really cool, can you make another video about this product?");
+        
+        Comment six = new Comment( "Travis Swift", "Is this something you use daily or on a weekly basis?");
+        
+        Comment seven = new Comment("Kyle Vaoyo", "This product looks like it is well made, love the design.");
+        
+        List<Comment> vidTwoComments = new List<Comment>();
+        vidTwoComments.Add(five);
+        vidTwoComments.Add(six);
+        vidTwoComments.Add(seven);
+        
+        Video videoTwo = new Video("Shelly Oceaaaan","New self cleaning robot vacuum that also mops!",  651, vidTwoComments);
+        
+        videoTwo.DisplayVideo();
         
         // Video C
-        Comment oneC = new Comment();
-        oneC._name = "Karolina Kutters";
-        oneC._comment = "Thanks for another great product review! This one was very informative";
         
-        Comment twoC = new Comment();
-        twoC._name = "Lynn Manwell";
-        twoC._comment = "I think this product would be great to replace the one i used to use, but i can't find any more :(";
         
-        Comment threeC = new Comment();
-        threeC._name = "Connie Way";
-        threeC._comment = "Could you give us an update video on how his product is continuing to work?";
+        Comment eight = new Comment("Karolina Kutters","Thanks for another great product review! This one was very informative" );
         
-        Comment fourC = new Comment();
-        fourC._name = "Timetuu Flie";
-        fourC._comment = "I bought this and didn't like it as much as you seemed to. I wonder if I did something wrong.";
-
-
-        Video videoOne = new Video();
-
-        videoOne._author = "Jessica Jimma";
-        videoOne._title = "The Best NEW Cleaning Product!";
-        videoOne._length = 300;
-        videoOne._comments.Add(oneA);
-        videoOne._comments.Add(twoA);
-        videoOne._comments.Add(threeA);
-        videoOne._comments.Add(fourA);
+        Comment nine = new Comment("Lynn Manwell", "I think this product would be great to replace the one i used to use, but i can't find any more :(");
         
-        videoOne.Display();
+        Comment ten = new Comment( "Connie Way", "Could you give us an update video on how his product is continuing to work?");
         
-        Video videoTwo = new Video();
-
-        videoTwo._author = "Shelly Oceaaaan";
-        videoTwo._title = "New cleaning Vaccume that also mops!";
-        videoTwo._length = 651;
-        videoTwo._comments.Add(oneB);
-        videoTwo._comments.Add(twoB);
-        videoTwo._comments.Add(threeB);
+        Comment eleven = new Comment( "Timetuu Flie",  "I bought this and didn't like it as much as you seemed to. I wonder if I did something wrong.");
         
-        videoTwo.Display();
+        List<Comment> vidThreeComments = new List<Comment>();
+        vidThreeComments.Add(eight);
+        vidThreeComments.Add(nine);
+        vidThreeComments.Add(ten);
+        vidThreeComments.Add(eleven);
         
-        Video videoThree = new Video();
-
-        videoThree._author = "Jux theMAN";
-        videoThree._title = "Great new self Cleaning litter box!";
-        videoThree._length = 453;
-        videoThree._comments.Add(oneC);
-        videoThree._comments.Add(twoC);
-        videoThree._comments.Add(threeC);
-        videoThree._comments.Add(fourC);
+        Video videoThree = new Video("Jux theMAN","Great new self Cleaning litter box!", 453, vidThreeComments);
         
-        videoThree.Display();
+        videoThree.DisplayVideo();
     }
 }

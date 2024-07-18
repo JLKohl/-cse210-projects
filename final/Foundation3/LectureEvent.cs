@@ -12,9 +12,9 @@ public class LectureEvent : Event
         _capacity = capacity;
     }
 
-    public string LectureDetails()
+    public override string EventDetails()
     {
-        return $" Lecture: {_lecture} \n Capacity {_capacity} ";
+        return $"Lecture: {_lecture} \n Event Capacity: {_capacity} ";
     }
     
 }

@@ -3,17 +3,15 @@ namespace Foundation4;
 public class Cycling : Exercise
 {
     private double _speed;
-    private double _distance;
-    
-    public Cycling( string activity, double minutes, double speed, double distance) : base(activity, minutes)
+  
+    public Cycling( string activity, double minutes, double speed) : base(activity, minutes)
     {
        _speed = speed;
-       _distance = distance;
     }
 
     public override double CalculateDistance()
     {
-        return _distance;
+        return 0;
     }
     
     public override double CalculateSpeed()

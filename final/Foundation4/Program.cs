@@ -9,7 +9,7 @@ class Program
         
         Running running = new Running("Running",89, 3);
         Swimming swimming = new Swimming("Swimming", 60, 20);
-        Cycling cycling = new Cycling("Cycling", 90, 11, 2.5);
+        Cycling cycling = new Cycling("Cycling", 90, 11);
         exercises.Add(running);
         exercises.Add(swimming);
         exercises.Add(cycling);

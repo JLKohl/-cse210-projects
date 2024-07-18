@@ -4,8 +4,14 @@ namespace Foundation1;
 
 public class Comment
 {
-    public string _name;
-    public string _comment;
+    private string _name;
+    private string _comment;
+
+    public Comment(string name, string comment)
+    {
+        _name = name;
+        _comment = comment;
+    }
 
    public void GetComment()
    {
